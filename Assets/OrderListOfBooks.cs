@@ -29,7 +29,7 @@ public class OrderListOfBooks : MonoBehaviour
                 BookDetailsUI bookDetailsUI = listofBooksUI[i];
                 BookSO bookSO = listOFBooks[i];
                 // Assuming SetData method of BookDetailsUI takes BookSO as a parameter
-                bookDetailsUI.SetData(bookSO.bookName,bookSO.bookAuthorName);
+                bookDetailsUI.SetData(bookSO.bookName,bookSO.bookAuthorName,bookSO.bookImage);
             }
         }
         else

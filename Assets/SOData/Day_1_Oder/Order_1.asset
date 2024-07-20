@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6feba85e2bf0544e93198d13646925f, type: 3}
-  m_Name: PCForDummiesBookItem
+  m_Script: {fileID: 11500000, guid: 47f5dd111064424abf7fa1605146041e, type: 3}
+  m_Name: Order_1
   m_EditorClassIdentifier: 
-  bookPrefab: {fileID: 1448285666510454893, guid: b5091294047caa948a9bd27b0dc8e8b4, type: 3}
-  bookName: PCForDummies
-  bookId: 101
-  bookAuthorName: Daniels
+  orderPersonImage: {fileID: 21300000, guid: 2e252f573da0ca1478e856186bb8ce9e, type: 3}
+  personName: Sharadha
+  booksOrdered:
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}

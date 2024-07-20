@@ -10,7 +10,7 @@ public class BookDetailsUI : MonoBehaviour
     public TextMeshProUGUI bookAuthor;
     public Image bookImage;
 
-    public void SetData(string bookName,string bookAuthor, Sprite bookImage=null)
+    public void SetData(string bookName,string bookAuthor, Sprite bookImage)
     {
         this.bookName.text = bookName;
         this.bookAuthor.text = bookAuthor;

@@ -45,6 +45,7 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
     {
         this.bookName.text = currentBook.bookName;
         this.bookAuthor.text = currentBook.bookAuthorName;
+        this.itemImage.sprite = currentBook.bookImage;
         this._itemData.SetActive(true);
         
     }
@@ -58,7 +59,7 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
                 {
                     GameObject bookDetailUI = Instantiate(bookdetailsPrefav);
                     bookDetailUI.gameObject.transform.SetParent(boxPanel.transform);
-                    bookDetailUI.GetComponent<BookDetailsUI>().SetData(bookDetail.bookName, bookDetail.bookAuthorName);
+                    bookDetailUI.GetComponent<BookDetailsUI>().SetData(bookDetail.bookName, bookDetail.bookAuthorName,bookDetail.bookImage);
 
                 }
                 boxPanel.SetActive(true);
