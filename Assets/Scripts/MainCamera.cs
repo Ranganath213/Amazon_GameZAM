@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameEnum.Templates;
 
 public class MainCamera : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class MainCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
- //       Check_UI();
+        Check_UI();
     }
 
     #endregion
@@ -52,7 +53,7 @@ public class MainCamera : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
-    /*
+    
     private void Check_UI()
     {
         _ray2 = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -67,7 +68,6 @@ public class MainCamera : MonoBehaviour
             else
             {
                 MainCanvas_UI.Instance.Hide_Helper();
-                
             }
         }
         else
@@ -94,5 +94,5 @@ public class MainCamera : MonoBehaviour
         return inRange;
 
     }
-    */
+    
 }
