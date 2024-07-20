@@ -11,7 +11,6 @@ public class BookItem : MonoBehaviour,IInteractable,IItemMovable
     public void Interact()
     {
         MainCanvas_UI.Instance.Show_Details(_bookSo.bookName);
-        
     }
     
     public void OnPickup(Transform handTransform)
@@ -28,7 +27,7 @@ public class BookItem : MonoBehaviour,IInteractable,IItemMovable
         transform.SetParent(newParentTransform);
         GetComponent<Rigidbody>().isKinematic = false; // Enable physics
     }
-
+ 
     public void OnRemoveItemFromPlayer()
     {
         transform.SetParent(null);
