@@ -8,6 +8,8 @@ using UnityEngine.Serialization;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private ShelfItem _shelf;
+    [SerializeField] private AllOrders _allOrders;
+    [SerializeField] private AllOrderSO _allOrderSo;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     public void Day1System(DayCount dayCount)
     {
         _shelf.InitializeBooks(_shelf._shelfSo[(int)dayCount]);
+        _allOrders.SetOrders(_allOrderSo);
     }
 
 }
