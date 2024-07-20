@@ -21,7 +21,6 @@ public class OrderListOfBooks : MonoBehaviour
     public void InitializeBooks()
     {
         // Check if both lists are initialized and have the same number of elements
-        Debug.LogError($"List of Book Count {listOFBooks.Count}"+$"List of BookUI {listofBooksUI.Count}");
         if (listOFBooks != null && listofBooksUI != null && listOFBooks.Count == listofBooksUI.Count)
         {
             for (int i = 0; i < listOFBooks.Count; i++)

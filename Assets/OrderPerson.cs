@@ -11,7 +11,13 @@ public class OrderPerson : MonoBehaviour
     public Image personImage;
     public TextMeshProUGUI personName;
     public OrderListOfBooks OrderListOfBooks;
-    
+    public Button packButton;
+
+    private void Start()
+    {
+        this.packButton.onClick.AddListener(OnClickPack);
+    }
+
     public void InitializeOrderSo(OrderSO currentOrder)
     {
         bookOrders = currentOrder;
@@ -22,5 +28,11 @@ public class OrderPerson : MonoBehaviour
         OrderListOfBooks.SetListofBooksDetails(bookOrders.booksOrdered.Count);
         OrderListOfBooks.InitializeBooks();
 
+    }
+
+    public void OnClickPack()
+    {
+     Debug.LogError("StartedToPack");
+     
     }
 }

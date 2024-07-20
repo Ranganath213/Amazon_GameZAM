@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
 {
+    private OrderSO _orderSo;
     private Transform originalParent;
     [FormerlySerializedAs("_bookSo")] [SerializeField]private List<BookSO> _bookSoList;
     public AudioSource audioSource;
@@ -25,6 +26,10 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
         MainCanvas_UI.Instance.Show_BoxDetails(_bookSoList);
     }
 
+    public void CreateBox(OrderSO orderSo)
+    {
+        _orderSo = orderSo;
+    }
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Book")&& amountOfBook_boxHolds<maxBookLimit)
