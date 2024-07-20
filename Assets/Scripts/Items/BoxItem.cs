@@ -54,7 +54,8 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
             transform.SetParent(handTransform);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
-            GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<BoxCollider>().enabled = false;// Disable physics
             return true;
         }
 
@@ -67,6 +68,7 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
         {
             transform.SetParent(newParentTransform);
             GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            GetComponent<BoxCollider>().enabled = true;// Disable physics
         }
     }
 
@@ -75,7 +77,9 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
         if (bookPacked)
         {
             transform.SetParent(null);
-            GetComponent<Rigidbody>().isKinematic = false; // Disable physics   
+            GetComponent<Rigidbody>().isKinematic = false; // Disable physics  
+            GetComponent<BoxCollider>().enabled = true;// Disable physics
+            
         }
     }
 
@@ -88,6 +92,7 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
             rb.isKinematic = false; // Enable physics
             Vector3 throwDirection = Camera.main.transform.forward; // Ge
             rb.AddForce(throwDirection * 20f, ForceMode.Impulse); // Apply force to throw the item
+            GetComponent<BoxCollider>().enabled = true;
         }
     }
 }
