@@ -2,15 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GameEnum.Templates;
+using TMPro;
 using UnityEngine;
 
 public class BookItem : MonoBehaviour,IInteractable,IItemMovable
 {
     private Transform originalParent;
     [SerializeField] public BookSO _bookSo;
+    [SerializeField] public TextMeshProUGUI TextMeshProUGUI;
+   
     public void Interact()
     {
-        MainCanvas_UI.Instance.Show_Details(_bookSo.bookName);
+        MainCanvas_UI.Instance.Show_BookDetails(_bookSo);
+       
+    }
+
+    public void HideBookName()
+    {
+        this.TextMeshProUGUI.gameObject.SetActive(false);
     }
     
     public void OnPickup(Transform handTransform)

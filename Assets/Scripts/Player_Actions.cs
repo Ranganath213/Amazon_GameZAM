@@ -100,10 +100,13 @@ public class Player_Actions : MonoBehaviour
         {
             if (interactableItem != null)
             {
+                Debug.Log("Interactable ITem");
                 if (this.mainCamera.IsInteractableMovableObjectInRange(out movableitem,out item))
                 {
+                    Debug.Log("Throwable ITem");
                     if (!playerHasItem)
                     {
+                        Debug.Log(" ITem Pickup");
                         playerHasItem = true;
                         pickedUpitem = item;
                         movableitem.OnPickup(handPostition);

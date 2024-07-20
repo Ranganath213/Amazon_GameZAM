@@ -21,9 +21,7 @@ public class MainCamera : MonoBehaviour
     RaycastHit _hit;
 
     #endregion
-
     #region Unity Methods
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -62,17 +60,20 @@ public class MainCamera : MonoBehaviour
         {
             if (_hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
             {
-                //If the Object is Interactable Show the Helper
+                //If the Object is Interactable Show the Helpe
                 MainCanvas_UI.Instance.Show_Helper();
+                interactable.Interact();
             }
             else
             {
                 MainCanvas_UI.Instance.Hide_Helper();
+             MainCanvas_UI.Instance.HideBookDetailes();
             }
         }
         else
         {
             MainCanvas_UI.Instance.Hide_Helper();
+            MainCanvas_UI.Instance.HideBookDetailes();
         }
     }
     

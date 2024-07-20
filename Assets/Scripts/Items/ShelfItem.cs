@@ -6,20 +6,20 @@ using UnityEngine;
 
 public class ShelfItem : MonoBehaviour,IInteractable
 {
-    [SerializeField] private ShelfSO _shelfSo;
+    [SerializeField] public ShelfSO[] _shelfSo;
     [SerializeField] private Transform spawnerPos;
     [SerializeField] private Transform booksParentGameObject;
     [SerializeField] private Vector3 spawnOffset;
     
-    private void InitializeBooks()
+    public void InitializeBooks(ShelfSO shelfSo)
     {
         int booksPerRow = 5;
         Vector3 initialPosition = spawnerPos.position;
         Vector3 rowOffset = new Vector3(0, -2, 0); // Adjust the Y-axis offset for the new row, you can change it as per your needs
 
-        for (int i = 0; i < _shelfSo.booksListToShow.Count; i++)
+        for (int i = 0; i < shelfSo.booksListToShow.Count; i++)
         {
-            var _book = _shelfSo.booksListToShow[i];
+            var _book = shelfSo.booksListToShow[i];
             GameObject spawnedBook = Instantiate(_book.bookPrefab, spawnerPos.position, Quaternion.identity, booksParentGameObject);
         
             // Check if we need to move to the next row
@@ -37,7 +37,7 @@ public class ShelfItem : MonoBehaviour,IInteractable
 
     private void Start()
     {
-        InitializeBooks();
+       // InitializeBooks(this._shelfSo);
     }
 
     public void Interact()

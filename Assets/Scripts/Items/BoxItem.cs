@@ -25,7 +25,7 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
 
     public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Book")&& amountOfBook_boxHolds<=maxBookLimit)
+        if (other.gameObject.CompareTag("Book")&& amountOfBook_boxHolds<maxBookLimit)
         {
             PackBook(other.gameObject);
             amountOfBook_boxHolds++;
@@ -56,8 +56,11 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
 
     public void OnPlace(Transform newParentTransform)
     {
-        transform.SetParent(newParentTransform);
-        GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+        if (bookPacked)
+        {
+            transform.SetParent(newParentTransform);
+            GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+        }
     }
 
     public void OnRemoveItemFromPlayer()

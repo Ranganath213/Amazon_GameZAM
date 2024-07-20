@@ -12,6 +12,11 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
     [SerializeField] public AudioSource _audioSource;
     [SerializeField] public AudioClip _btnClickSFX;
 
+    [SerializeField] public GameObject _itemData;
+    public Image itemImage;
+    public TextMeshProUGUI bookName;
+    public TextMeshProUGUI bookAuthor;
+
 
     public void Play_ButtonSound()
     {
@@ -31,18 +36,21 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
     }
 
     
-    public void Show_Details(string message)
+    public void Show_BookDetails(BookSO currentBook)
     {
-        this._defaultMsg_TMP.text = message;
-        if (!this._defaultMsg_TMP.gameObject.activeSelf)
-            this._defaultMsg_TMP.gameObject.SetActive(true);
+        this.bookName.text = currentBook.bookName;
+        this.bookAuthor.text = currentBook.bookAuthorName;
+        this._itemData.SetActive(true);
         
-        Invoke("Hide_Details",1f);
+    }
 
+    public void HideBookDetailes()
+    {
+        if(_itemData.activeSelf)
+           this._itemData.gameObject.SetActive(false);
     }
     public void Hide_Details()
     {
-        Debug.Log("Messages is Turned Offf");
         if (this._defaultMsg_TMP.gameObject.activeSelf)
             this._defaultMsg_TMP.gameObject.SetActive(false);
     }
