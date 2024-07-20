@@ -10,12 +10,12 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private GameObject timelineTest;
     [SerializeField]
-    private Player_Audio player_Audio;
+    private AudioManager player_Audio;
     Vector3 velocity;
 
     private void Start()
     {
-        this.player_Audio = this.GetComponent<Player_Audio>();
+        this.player_Audio = this.GetComponent<AudioManager>();
     }
     void Update()
     {
@@ -26,15 +26,15 @@ public class Player_Movement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         characterController.Move(move * speed * Time.deltaTime);
 
-        if (move.magnitude > 0 && !this.player_Audio._playerWalk.isPlaying)
+        if (move.magnitude > 0)
         {
             // If there's movement and audio is not playing, play the walking sound.
-            this.player_Audio.Player_Audio_Walk(true);
+            this.player_Audio.PlayWalkingSound(true);
         }
-        else if (move.magnitude == 0 && this.player_Audio._playerWalk.isPlaying)
+        else if (move.magnitude == 0 )
         {
             // If there's no movement and audio is playing, stop the walking sound.
-            this.player_Audio.Player_Audio_Walk(false);
+            this.player_Audio.PlayWalkingSound(false);
         }
 
 

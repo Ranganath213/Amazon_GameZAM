@@ -19,14 +19,14 @@ public class Player_Actions : MonoBehaviour
     
     [SerializeField]private bool playerHasItem;
     [SerializeField]private GameObject pickedUpitem;
-    private Player_Audio _player_Audio;
+    private AudioManager _player_Audio;
     #endregion
 
 
     #region Unity Methods
     private void Start()
     {
-        _player_Audio = this.GetComponent<Player_Audio>();
+        _player_Audio = this.GetComponent<AudioManager>();
         
     }
     private void Update()
@@ -106,6 +106,7 @@ public class Player_Actions : MonoBehaviour
                     Debug.Log("Throwable ITem");
                     if (!playerHasItem &&  movableitem.OnPickup(handPostition))
                     {
+                        this._player_Audio.PlaySFX(_player_Audio.pickUpClip);
                         Debug.Log(" ITem Pickup");
                         playerHasItem = true;
                         pickedUpitem = item;

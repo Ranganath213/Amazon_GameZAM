@@ -9,6 +9,8 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
 {
     private Transform originalParent;
     [FormerlySerializedAs("_bookSo")] [SerializeField]private List<BookSO> _bookSoList;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     private bool bookPacked;
     private int amountOfBook_boxHolds=0;
     private int maxBookLimit = 3;
@@ -27,6 +29,7 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
     {
         if (other.gameObject.CompareTag("Book")&& amountOfBook_boxHolds<maxBookLimit)
         {
+            audioSource.PlayOneShot(audioClip);
             PackBook(other.gameObject);
             amountOfBook_boxHolds++;
             if (amountOfBook_boxHolds == maxBookLimit)

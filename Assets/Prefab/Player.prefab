@@ -192,12 +192,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   _maxRayDistance: 5
   playerBody: {fileID: 457933153655131752}
-  player: {fileID: 457933153655131752}
-  collisionOffset: 0.5
-  smoothSpeed: 10
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &457933153655131759
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,8 +204,8 @@ GameObject:
   - component: {fileID: 457933153655131753}
   - component: {fileID: 2271569385671344593}
   - component: {fileID: 3462360781107784786}
-  - component: {fileID: 7965952230758899193}
   - component: {fileID: 7404346222412451221}
+  - component: {fileID: 7026356341124510230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -379,33 +373,6 @@ MonoBehaviour:
   gravity: -9.8
   timelineTest: {fileID: 0}
   player_Audio: {fileID: 0}
---- !u!114 &7965952230758899193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457933153655131759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511965b327f19f14eab000f9b9b635ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerSFX: {fileID: 0}
-  _playerWalk: {fileID: 5169713829865161913}
-  _playerBreathing: {fileID: 8302163113678250414}
-  _musicLoop: {fileID: 6922134926401015428}
-  _playerScared:
-  - {fileID: 8546184183461961660}
-  - {fileID: 5070003133827531166}
-  _WalkAudio_SFX:
-  - {fileID: 8300000, guid: 7d04b18dbdc40f7408a7e2bf6dcdcf22, type: 3}
-  _crushingPaper_SFX: {fileID: 8300000, guid: 61253dd9de0948f4aaf772e494297256, type: 3}
-  _object_SFX: {fileID: 8300000, guid: ce403b07af916ec4381fadaa74a7a751, type: 3}
-  _breathingSFX:
-  - {fileID: 8300000, guid: c058d08c3c064aa4288e452a352708a6, type: 3}
-  - {fileID: 8300000, guid: 95ec3375971f38e49b89faad5c80aeec, type: 3}
-  _musicSFX: {fileID: 8300000, guid: f9950167c38b9d847a55fb9aaa6b90d7, type: 3}
 --- !u!114 &7404346222412451221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +390,24 @@ MonoBehaviour:
   placeTransform: {fileID: 0}
   playerHasItem: 0
   pickedUpitem: {fileID: 0}
+--- !u!114 &7026356341124510230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457933153655131759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18a9adc5127db747800e6aba3ce7a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxSource: {fileID: 2271569385671344593}
+  musicSource: {fileID: 6922134926401015428}
+  walkingSource: {fileID: 5169713829865161913}
+  walkingClip: {fileID: 8300000, guid: f280cdb3df549f74e82436bf333b551e, type: 3}
+  pickUpClip: {fileID: 8300000, guid: dc39ddc06d2d25047a719f3e3c93e31e, type: 3}
+  mucicClip: {fileID: 0}
 --- !u!1 &1744183416311396485
 GameObject:
   m_ObjectHideFlags: 0
