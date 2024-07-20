@@ -68,12 +68,14 @@ public class MainCamera : MonoBehaviour
             {
                 MainCanvas_UI.Instance.Hide_Helper();
              MainCanvas_UI.Instance.HideBookDetailes();
+             MainCanvas_UI.Instance.hideBoxDetails();
             }
         }
         else
         {
             MainCanvas_UI.Instance.Hide_Helper();
             MainCanvas_UI.Instance.HideBookDetailes();
+            MainCanvas_UI.Instance.hideBoxDetails();
         }
     }
     

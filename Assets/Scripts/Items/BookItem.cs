@@ -22,13 +22,14 @@ public class BookItem : MonoBehaviour,IInteractable,IItemMovable
         this.TextMeshProUGUI.gameObject.SetActive(false);
     }
     
-    public void OnPickup(Transform handTransform)
+    public bool OnPickup(Transform handTransform)
     {
         originalParent = transform.parent;
         transform.SetParent(handTransform);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
         GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+        return true;
     }
 
     public void OnPlace(Transform newParentTransform)

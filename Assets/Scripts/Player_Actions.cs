@@ -52,11 +52,7 @@ public class Player_Actions : MonoBehaviour
         {
             ThrowItem();
         }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            CheckForInventory();
-        }
+        
     }
 
     private void ThrowItem()
@@ -69,6 +65,8 @@ public class Player_Actions : MonoBehaviour
                 pickedUpitem = null;
                 playerHasItem = false;
             }
+            pickedUpitem = null;
+            playerHasItem = false;
         }
        
     }
@@ -83,6 +81,8 @@ public class Player_Actions : MonoBehaviour
                 pickedUpitem = null;
                 playerHasItem = false;
             }
+            pickedUpitem = null;
+            playerHasItem = false;
         }
       
     }
@@ -104,13 +104,19 @@ public class Player_Actions : MonoBehaviour
                 if (this.mainCamera.IsInteractableMovableObjectInRange(out movableitem,out item))
                 {
                     Debug.Log("Throwable ITem");
-                    if (!playerHasItem)
+                    if (!playerHasItem &&  movableitem.OnPickup(handPostition))
                     {
                         Debug.Log(" ITem Pickup");
                         playerHasItem = true;
                         pickedUpitem = item;
-                        movableitem.OnPickup(handPostition);
                         
+                    }
+                    else if(!movableitem.OnPickup(handPostition)&&!playerHasItem)
+                    {
+                        
+                        Debug.Log(" ITem Pickup");
+                        playerHasItem = false;
+                        pickedUpitem = null;
                     }
                     
                 }

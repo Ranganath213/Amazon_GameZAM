@@ -20,7 +20,7 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
 
     public void Interact()
     {
-        Debug.Log("Interacted with box");
+        MainCanvas_UI.Instance.Show_BoxDetails(_bookSoList);
     }
 
     public void OnCollisionEnter(Collision other)
@@ -42,16 +42,20 @@ public class BoxItem : MonoBehaviour,IInteractable,IItemMovable
         Destroy(bookPlaced);
     }
 
-    public void OnPickup(Transform handTransform)
+    public bool OnPickup(Transform handTransform)
     {
         if (bookPacked)
         {
+            MainCanvas_UI.Instance.HideBoxPanel();
             originalParent = transform.parent;
             transform.SetParent(handTransform);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+            return true;
         }
+
+        return false;
     }
 
     public void OnPlace(Transform newParentTransform)

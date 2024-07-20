@@ -17,6 +17,11 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
     public TextMeshProUGUI bookName;
     public TextMeshProUGUI bookAuthor;
 
+    public GameObject boxPanel;
+    public GameObject bookdetailsPrefav;
+
+    private List<BookSO> previousBookList;
+    private bool booksPopulated;
 
     public void Play_ButtonSound()
     {
@@ -43,11 +48,52 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
         this._itemData.SetActive(true);
         
     }
+    public void Show_BoxDetails(List<BookSO> currentBookList)
+    {
+        if (previousBookList != currentBookList)
+        {
+            if (currentBookList != null)
+            {
+                foreach (var bookDetail in currentBookList)
+                {
+                    GameObject bookDetailUI = Instantiate(bookdetailsPrefav);
+                    bookDetailUI.gameObject.transform.SetParent(boxPanel.transform);
+                    bookDetailUI.GetComponent<BookDetailsUI>().SetData(bookDetail.bookName, bookDetail.bookAuthorName);
+
+                }
+                boxPanel.SetActive(true);
+
+            }
+
+            previousBookList = currentBookList;
+        }
+    }
 
     public void HideBookDetailes()
     {
         if(_itemData.activeSelf)
            this._itemData.gameObject.SetActive(false);
+    }
+
+    public void hideBoxDetails()
+    {
+        if (boxPanel.activeSelf)
+        {
+            this.previousBookList = null;
+            foreach (Transform child in boxPanel.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            this.boxPanel.gameObject.SetActive(false);
+        }
+    }
+
+    public void HideBoxPanel()
+    {
+        if (boxPanel.activeSelf)
+        {
+            this.boxPanel.gameObject.SetActive(false);
+        }  
     }
     public void Hide_Details()
     {
