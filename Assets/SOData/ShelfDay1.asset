@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea9dc184b3c4dee9d2e19c013d043e2, type: 3}
   m_Name: ShelfDay1
   m_EditorClassIdentifier: 
-  booksListToShow: []
+  booksListToShow:
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}
+  - {fileID: 11400000, guid: 99cc786213d657c41b037ab9333fe96a, type: 2}

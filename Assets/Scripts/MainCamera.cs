@@ -75,7 +75,7 @@ public class MainCamera : MonoBehaviour
             MainCanvas_UI.Instance.Hide_Helper();
         }
     }
-
+    
     public bool IsInteractableObjectInRange(out IInteractable interactableItem)
     {
         bool inRange = false;
@@ -91,6 +91,31 @@ public class MainCamera : MonoBehaviour
             inRange = false;
             interactableItem = null;
         }
+        return inRange;
+
+    }
+    public bool IsInteractableMovableObjectInRange(out IItemMovable movableItem,out GameObject item)
+    {
+        bool inRange = false;
+        _ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        
+        if (Physics.Raycast(_ray, out _hit, _maxRayDistance))
+        {
+            inRange = true;
+
+            if (_hit.collider.gameObject.TryGetComponent(out movableItem))
+            {
+                item = _hit.collider.gameObject;
+                return inRange;
+            }
+        }
+        else
+        {
+            inRange = false;
+            movableItem = null;
+        }
+
+        item = null;
         return inRange;
 
     }

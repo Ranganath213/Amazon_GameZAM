@@ -44,4 +44,14 @@ public class ShelfItem : MonoBehaviour,IInteractable
     {
         Debug.Log("Interacted with Shelf");
     }
+
+    public void OnPickup(Transform handTransform)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnPlace(Transform newParentTransform)
+    {
+        throw new NotImplementedException();
+    }
 }

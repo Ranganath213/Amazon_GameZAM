@@ -305,6 +305,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7404346222412451221, guid: 2d106850646e0564a8dac27aeea6bedb, type: 3}
+      propertyPath: handPostition
+      value: 
+      objectReference: {fileID: 1160842134}
+    - target: {fileID: 7404346222412451221, guid: 2d106850646e0564a8dac27aeea6bedb, type: 3}
+      propertyPath: placeTransform
+      value: 
+      objectReference: {fileID: 1160842134}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -329,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &979567604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -429,6 +437,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shelfSo: {fileID: 0}
+  spawnerPos: {fileID: 0}
+  booksParentGameObject: {fileID: 0}
+  spawnOffset: {x: 0, y: 0, z: 0}
+--- !u!4 &1160842134 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4460017109720641726, guid: 2d106850646e0564a8dac27aeea6bedb, type: 3}
+  m_PrefabInstance: {fileID: 434899844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1236385373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236385374}
+  m_Layer: 0
+  m_Name: ListOFBooks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1236385374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236385373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3550500034334468217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344914379
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +594,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3277f2e8488974d9392b6a68dfe277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bookSo: {fileID: 0}
+--- !u!1 &1642420515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642420516}
+  m_Layer: 0
+  m_Name: SpawnerPostion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642420516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642420515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.96, y: 2.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3550500034334468217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928324748
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +828,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6402534940546532152, guid: 51b699feed4815749877bf1554b11e24, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 188fd945ef26d94428754001443ca310, type: 3}
     m_RemovedComponents:
     - {fileID: 5921169486903871219, guid: 51b699feed4815749877bf1554b11e24, type: 3}
     m_RemovedGameObjects: []
@@ -763,6 +846,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 573852072242288546, guid: b5091294047caa948a9bd27b0dc8e8b4, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1448285666510454893, guid: b5091294047caa948a9bd27b0dc8e8b4, type: 3}
       propertyPath: m_Name
       value: Book
@@ -834,6 +921,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7868154037668451904}
+  - {fileID: 1642420516}
+  - {fileID: 1236385374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4183343040845640387
@@ -846,6 +935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3550500034334468217}
   - component: {fileID: 4183343040845640388}
+  - component: {fileID: 4183343040845640389}
   m_Layer: 0
   m_Name: Shelf
   m_TagString: Untagged
@@ -870,10 +960,26 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 8.23, y: 4.6560354, z: 1.3189125}
-  m_Center: {x: 1.44, y: 1.42, z: -1.87}
+  m_Size: {x: 9.217182, y: 3.1510508, z: 3.5169086}
+  m_Center: {x: 0.9464092, y: 0.66750777, z: -0.7710018}
+--- !u!114 &4183343040845640389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183343040845640387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4450fb8c2d016d1499720f7f2b5d7245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shelfSo: {fileID: 11400000, guid: 82f9b7bd053e34c4dac6506f1ca7210f, type: 2}
+  spawnerPos: {fileID: 1642420516}
+  booksParentGameObject: {fileID: 1236385374}
+  spawnOffset: {x: -1, y: 0, z: 0}
 --- !u!23 &7075897678161727599
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -14,6 +14,11 @@ public class Player_Actions : MonoBehaviour
 
     [Header("Main Camera")]
     [SerializeField] private MainCamera mainCamera;
+    [SerializeField] private Transform handPostition;
+    [SerializeField] private Transform placeTransform = null; 
+    
+    [SerializeField]private bool playerHasItem;
+    [SerializeField]private GameObject pickedUpitem;
     private Player_Audio _player_Audio;
     #endregion
 
@@ -38,11 +43,50 @@ public class Player_Actions : MonoBehaviour
             CheckForInteractables();
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlaceItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ThrowItem();
+        }
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             CheckForInventory();
         }
     }
+
+    private void ThrowItem()
+    {
+        if (playerHasItem)
+        {
+            if (pickedUpitem.TryGetComponent(out IItemMovable item))
+            {
+                item.OnThrow();
+                pickedUpitem = null;
+                playerHasItem = false;
+            }
+        }
+       
+    }
+
+    private void PlaceItem()
+    {
+        if (playerHasItem)
+        {
+            if (pickedUpitem.TryGetComponent(out IItemMovable item))
+            {
+                item.OnRemoveItemFromPlayer();
+                pickedUpitem = null;
+                playerHasItem = false;
+            }
+        }
+      
+    }
+
     private void CheckForInventory()
     {
       //  InventoryManager.Instance.EnableInventory();
@@ -50,11 +94,24 @@ public class Player_Actions : MonoBehaviour
     private void CheckForInteractables()
     {
         IInteractable interactableItem=null;
+        IItemMovable movableitem = null;
+        GameObject item;
         if (this.mainCamera.IsInteractableObjectInRange(out interactableItem))
         {
             if (interactableItem != null)
             {
-                interactableItem.Interact();
+                if (this.mainCamera.IsInteractableMovableObjectInRange(out movableitem,out item))
+                {
+                    if (!playerHasItem)
+                    {
+                        playerHasItem = true;
+                        pickedUpitem = item;
+                        movableitem.OnPickup(handPostition);
+                        
+                    }
+                    
+                }
+
             }
         }
     }

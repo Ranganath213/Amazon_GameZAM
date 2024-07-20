@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainCanvas_UI : Singleton<MainCanvas_UI>
 {
     [SerializeField] private TextMeshProUGUI _defaultMsg_TMP;
+    [SerializeField] private TextMeshProUGUI _showItem_TMP;
     [SerializeField] private GameObject _helper_Obj;
 
     [SerializeField] public AudioSource _audioSource;
@@ -29,6 +30,22 @@ public class MainCanvas_UI : Singleton<MainCanvas_UI>
             this._helper_Obj.gameObject.SetActive(false);
     }
 
+    
+    public void Show_Details(string message)
+    {
+        this._defaultMsg_TMP.text = message;
+        if (!this._defaultMsg_TMP.gameObject.activeSelf)
+            this._defaultMsg_TMP.gameObject.SetActive(true);
+        
+        Invoke("Hide_Details",1f);
+
+    }
+    public void Hide_Details()
+    {
+        Debug.Log("Messages is Turned Offf");
+        if (this._defaultMsg_TMP.gameObject.activeSelf)
+            this._defaultMsg_TMP.gameObject.SetActive(false);
+    }
 
     public void Show_Message(string message)
     {
